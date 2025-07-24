@@ -29,12 +29,12 @@ jobs:
            envs: VITE_SERVER_URL,NODE_ENV
            script: |
              cd /var/www/html/iotfront/
-             rm -rf .env
-             touch .env
-             chmod 777 .env
+             sudo rm -rf .env
+             sudo touch .env
+             sudo chmod 777 .env
              echo VITE_SERVER_URL=$VITE_SERVER_URL >> .env
              echo NODE_ENV=$NODE_ENV >> .env
              sudo git pull origin main
              sudo git status
-             npm install
-             npm run build
+             sudo npm install
+             sudo npm run build
