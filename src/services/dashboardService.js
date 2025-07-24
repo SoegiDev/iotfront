@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 const baseUrl =
   process.env.NODE_ENV !== 'production'
-    ? 'http://127.0.0.1:8080/dashboard/'
+    ? 'http://127.0.0.1:8080'
     : import.meta.env.VITE_SERVER_URL
 
 const baseQuery = fetchBaseQuery({
@@ -31,7 +31,7 @@ export const dashboardApi = createApi({
   endpoints: (build) => ({
     getData: build.query({
       query: () => ({
-        url: 'dash_team',
+        url: '/dashboard/dash_team',
         method: 'GET',
       }),
     })
