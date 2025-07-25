@@ -8,12 +8,12 @@ const ProtectedRoute = () => {
   const { userInfo } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
   // show unauthorized screen if no user is found in redux store
-  const { data, isFetching } = useGetUserDetailsQuery({pollingInterval:60000});
+  const { data, isLoading } = useGetUserDetailsQuery({pollingInterval:60000});
   useEffect(() => {
     if (data)
       dispatch(setCredentials(data))
   }, [data, dispatch]);
-  if (isFetching) {
+  if (isLoading) {
     return (
        <div className="pt-3 text-center">
           <CSpinner color="primary" variant="grow" />
