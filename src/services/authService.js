@@ -17,15 +17,15 @@ prepareHeaders: (headers, { getState }) => {
 });
 
 const baseQueryWithReauth = async (args, api, extraOptions) => {
-  let result = await baseQuery(args, api, extraOptions);
-  if (result.error && result.error.status === 401){
-      api.dispatch(logout());
-      console.log("Authorization Failed");
-  }else{
-    console.log("Get Profile "+result.data);
-    api.dispatch(setCredentials(result.data));
-  }
-  return result;
+  let result = await baseQuery(args, api, extraOptions)
+  if (result?.error?.status === 401) {
+      api.dispatch(logout())
+      console.log("Authorization Failed")
+    }else{
+      console.log("Get Profile "+result.data)
+      api.dispatch(setCredentials(result.data))
+    }
+    return result
   }
 export const authApi = createApi({
   reducerPath: 'authProfile',
