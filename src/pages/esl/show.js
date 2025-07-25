@@ -536,7 +536,7 @@ const FormControl = () => {
                             type="submit"
                             color="primary">
                             {isPushLoading ? "Loading..." : "Update"}
-                          </CButton>
+                          </CButton><span> </span><span> * kosongkan field jika tidak ditampilkan</span>
                         </CForm>
                         :<CForm onSubmit={pushContent}></CForm>}
                       </CCardBody>
