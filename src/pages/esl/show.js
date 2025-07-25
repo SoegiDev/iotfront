@@ -29,6 +29,7 @@ import {resetShowApi } from "../../features/showSlice";
 import {resetPushApi } from "../../features/pushSlice";
 import { outletListSearch } from '../../features/actions/outletAction';
 const FormControl = () => {
+   const BASEURL_ = import.meta.env.VITE_SERVER_URL;
   const profile = useSelector((state) => state.auth.userInfo)
   const [rootCompany,setRootCompany] = useState("")
   const [companyId,setCompanyId] = useState("")
@@ -382,7 +383,8 @@ const FormControl = () => {
                         <CForm onSubmit={pushContent}>
                           <CRow>
                             <CCol xs={12} className="text-center">
-                              <CImage rounded src='http://localhost:8080/static/images/esl_versi1.png'  width={280} height={140} />
+                            
+                              <CImage rounded src={BASEURL_+"/static/images/esl_versi1.png"}  width={280} height={140} />
                             </CCol>
                           </CRow>
                           <CRow>
