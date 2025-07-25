@@ -1,7 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { logout, setCredentials } from '../features/auths/authSlice'
-import { useNavigate } from "react-router-dom";
- const navigate = useNavigate();
 const baseUrl =
   process.env.NODE_ENV !== 'production'
     ? 'http://127.0.0.1:8080'
@@ -22,7 +20,6 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions)
   if (result?.error?.status === 401) {
       api.dispatch(logout())
-      navigate("/login");
   }else{
     console.log("Get Profile "+result.data)
     api.dispatch(setCredentials(result.data))
