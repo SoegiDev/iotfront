@@ -20,6 +20,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions)
   if (result?.error?.status === 401) {
       api.dispatch(logout())
+      console.log("Authorization Failed")
   }else{
     console.log("Get Profile "+result.data)
     api.dispatch(setCredentials(result.data))
