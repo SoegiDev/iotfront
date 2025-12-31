@@ -22,6 +22,7 @@ const Collapses = () => {
   const [getPages, setPages] = useState(1)
   const [userList,setListUser] = useState([])
   const [companie, setId] = useState(useParams().company_id)
+  const [companieName, setCompanyName] = useState(useParams().company_name)
   const [getQuery, setQuery] = useState("")
   const [companyId,setCompanyId] = useState("")
   const [rootCompany,setRootCompany] = useState("")
@@ -69,7 +70,12 @@ const Collapses = () => {
   }
   const addUser = (queryText) => {
     console.log("Pilih "+queryText)
-    navigate("/user/add/"+rootCompany);
+    if(companieName=="undefined"){
+      navigate("/user/add/"+rootCompany);
+    }else{
+      navigate("/user/add/"+rootCompany+"/"+companieName);
+    }
+    
   }
   return (
     <CRow>
@@ -79,7 +85,7 @@ const Collapses = () => {
             <CRow>
              <CCol xs={8}>
               <strong>
-                User List (Only Admin Team)
+                User List ( {companieName && companieName} )
               </strong></CCol>
                <CCol xs={4} align="end">
                 <CIcon icon={cilPlus} className="text-success" size="md" /><strong onClick={() => addUser("Add User")} style={{ cursor: 'pointer' }}

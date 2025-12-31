@@ -124,7 +124,7 @@ const Collapses = () => {
                           </CTableDataCell>
                         <CTableDataCell>
                           <Link
-                              to={`/user/${data.id}`}>
+                              to={`/user/${data.id}/${data.company_name}`}>
                                 <CButton color="info" variant="outline" size="sm">
                               <CIcon icon={cilList} className="text-success" size="md" />Users</CButton>
                           </Link>
@@ -142,7 +142,7 @@ const Collapses = () => {
               </CTable>
             }
             <div>
-              <div>Total : {clientList && clientList.length}</div>
+              <div>Total Data: {pagination && pagination.total_data}</div>
               <CPagination align="end"  aria-label="Page navigation example">
                  {(() => {
                     let hal_page = []

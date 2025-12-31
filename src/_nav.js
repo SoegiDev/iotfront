@@ -29,16 +29,16 @@ const _nav = [
   },
   {
     component: CNavItem,
-    name: 'Outlets',
-    to: '/outlet',
-    icon: <CIcon icon={cilBuilding} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavItem,
     name: 'Device List',
     to: '/device',
     icon: <CIcon icon={cilDevices} customClassName="nav-icon" />,
-  }
+  },
+  {
+    component: CNavItem,
+    name: 'ESL Monitoring',
+    to: '/monitoring',
+    icon: <CIcon icon={cilDevices} customClassName="nav-icon" />,
+  },
 ]
 
 export default _nav

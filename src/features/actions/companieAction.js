@@ -4,7 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 const backendURL =
   process.env.NODE_ENV !== 'production'
-    ? 'http://127.0.0.1:8080/'
+    ? 'http://127.0.0.1:8080'
     : import.meta.env.VITE_SERVER_URL
 
 
@@ -43,7 +43,7 @@ export const comShow = createAsyncThunk(
           "x-access-token":token
         },
       }
-      const { data} = await axios.post(`${backendURL}company/show`,post_data['body'],config);
+      const { data} = await axios.post(`${backendURL}/company/show`,post_data['body'],config);
        return data
     } catch (error) {
       // return custom error message from API if any
@@ -67,7 +67,7 @@ export const comChange = createAsyncThunk(
           "x-access-token":token
         },
       }
-      const { data} = await axios.post(`${backendURL}company/change`,post_data['body'],config);
+      const { data} = await axios.post(`${backendURL}/company/change`,post_data['body'],config);
        return data
     } catch (error) {
       // return custom error message from API if any
@@ -91,7 +91,7 @@ export const comCreate = createAsyncThunk(
           "x-access-token":token
         },
       }
-      const { data} = await axios.post(`${backendURL}company/create`,post_data['body'],config);
+      const { data} = await axios.post(`${backendURL}/company/create`,post_data['body'],config);
        return data
     } catch (error) {
       // return custom error message from API if any

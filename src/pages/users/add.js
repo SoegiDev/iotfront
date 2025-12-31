@@ -55,6 +55,7 @@ const FormControl = () => {
   const [rootCompany,setRootCompany] = useState("")
   const [companyId,setCompanyId] = useState("")
   const [companie, setCompanie] = useState(useParams().company_id)
+  const [companieName, setCompanieName] = useState(useParams().company_name)
   useEffect(() =>{
     if(profile && profile.user_account){
       if(profile.user_account && profile.user_account.company){
@@ -217,7 +218,7 @@ const FormControl = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Add User</strong>
+            <strong>Add User</strong> ( {companieName && companieName} )
           </CCardHeader>
           <CCardBody>
             <CForm onSubmit={pushChange} id='esl_show'>

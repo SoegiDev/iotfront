@@ -1,3 +1,4 @@
+import { exact } from 'prop-types'
 import React from 'react'
 const Dashboard = React.lazy(() => import('./pages/dashboard/dashboard'))
 
@@ -30,6 +31,7 @@ const ImportContent = React.lazy(() => import('./pages/import/content'))
 // DEVICE
 const DeviceList = React.lazy(() => import('./pages/esl/list'))
 const DeviceShow = React.lazy(() => import('./pages/esl/show'))
+const DeviceMonitoring = React.lazy(() => import('./pages/esl/esl_monitor'))
 
 
 const routes = [
@@ -48,9 +50,11 @@ const routes = [
   { path: '/companies/add', name: 'CompanieAdd', element: MyCompanieAdd},
   { path: '/user', name: 'User', element: UserList, exact: true },
   { path: '/user/:company_id', name: 'User', element: UserList, exact: true },
+  { path: '/user/:company_id/:company_name', name: 'User', element: UserList, exact: true },
   { path: '/user/show/:id', name: 'Detail User', element: UserShow},
   { path: '/user/add', name: 'Create User', element: UserAdd, exact: true },
   { path: '/user/add/:company_id', name: 'Create User', element: UserAdd, exact: true },
+  { path: '/user/add/:company_id/:company_name', name: 'Create User', element: UserAdd, exact: true },
   { path: '/product', name: 'Product', element: MyProductList, exact: true },
   { path: '/product/:company_id', name: 'Product', element: MyProductList, exact: true },
   { path: '/product/show/:id', name: 'Detail Product', element: MyProductShow},
@@ -64,6 +68,9 @@ const routes = [
   { path: '/device', name: 'Device', element: DeviceList, exact: true },
   { path: '/device/:company_id', name: 'Device', element: DeviceList, exact: true },
   { path: '/device/show/:id', name: 'Detail Device', element: DeviceShow},
+  { path: '/monitoring', name: 'Monitoring Device', element: DeviceMonitoring, exact: true},
+
+
   // COMMING SOON
   // { path: '/iot', name: 'IOT', element: Colors, exact: true },
   // { path: '/iot/home', name: 'Home', element: IOTHOME },

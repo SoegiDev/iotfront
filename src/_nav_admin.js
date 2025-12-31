@@ -40,12 +40,6 @@ const _nav = [
     icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
   },
   {
-    component: CNavItem,
-    name: 'Own Product',
-    to: '/product',
-    icon: <CIcon icon={cilBasket} customClassName="nav-icon" />,
-  },
-  {
     component: CNavGroup,
     name: 'Import Data',
     icon: <CIcon icon={cilCloudUpload} customClassName="nav-icon" />,
@@ -64,12 +58,6 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'Import Product',
-        icon: <CIcon icon={cilFastfood} customClassName="nav-icon" />,
-        to: '/import/product',
-      },
-      {
-        component: CNavItem,
         name: 'Import Content',
         icon: <CIcon icon={cilCommand} customClassName="nav-icon" />,
         to: '/import/content',
@@ -82,7 +70,6 @@ const _nav = [
     to: '/device',
     icon: <CIcon icon={cilDevices} customClassName="nav-icon" />,
   },
-  
   {
     component: CNavItem,
     name: 'ESL Monitoring',
