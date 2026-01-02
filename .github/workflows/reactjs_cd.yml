@@ -32,6 +32,7 @@ jobs:
              sudo rm -rf .env
              sudo rm -rf build
              sudo rm -rf node_modules
+             sudo rm -rf package-lock.json
              sudo touch .env
              sudo chmod 777 .env
              echo VITE_SERVER_URL=$VITE_SERVER_URL >> .env
