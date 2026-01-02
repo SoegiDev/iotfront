@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VITE_SERVER_URL: ${{ secrets.VITE_SERVER_URL }}
+      VITE_APP_ENV: ${{ secrets.VITE_NODE_ENV }}
       NODE_ENV: ${{ secrets.VITE_NODE_ENV }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -26,14 +27,15 @@ jobs:
            username: ${{ secrets.USERNAME }}
            password: ${{ secrets.PASSWORD }}
            port: 22
-           envs: VITE_SERVER_URL,NODE_ENV
+           envs: VITE_SERVER_URL,VITE_APP_ENV,NODE_ENV
            script: |
              cd /var/www/html/iotfront/
              sudo rm -rf .env
              sudo touch .env
              sudo chmod 777 .env
              echo VITE_SERVER_URL=$VITE_SERVER_URL >> .env
-             echo NODE_ENV=$NODE_ENV >> .env
+             echo VITE_APP_ENV=$VITE_NODE_ENV >> .env
+             echo NODE_ENV=$VITE_NODE_ENV >> .env
              sudo git pull origin main
              sudo git status
              sudo npm install
